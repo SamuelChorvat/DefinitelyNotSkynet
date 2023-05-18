@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkyNotes.Common.DataContext.Sqlite", "SkyNotes.Common.DataContext.Sqlite\SkyNotes.Common.DataContext.Sqlite.csproj", "{A2472374-0B04-434F-9584-60FE4351D48A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyNotes.Common.EntityModels.Sqlite", "SkyNotes.Common.EntityModels.Sqlite\SkyNotes.Common.EntityModels.Sqlite.csproj", "{88173845-C0A2-48C5-B8F9-ACB472FFCF04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkyNotes.Common.EntityModels.Sqlite", "SkyNotes.Common.EntityModels.Sqlite\SkyNotes.Common.EntityModels.Sqlite.csproj", "{88173845-C0A2-48C5-B8F9-ACB472FFCF04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
