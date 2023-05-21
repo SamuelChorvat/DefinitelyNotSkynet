@@ -1,0 +1,62 @@
+﻿@page "/Notes"
+@using SkyNotes.BlazorServer.Data
+@using SkyNotes.Common.EntityModels.Sqlite
+@inject ISkyNotesService Service
+
+<h1>Notes</h1>
+
+<div class="form-group">
+    <a class="btn btn-info" href="createnote">
+        <i class="oi oi-plus"></i> Create New
+    </a>
+</div>
+
+@if (_notes is null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Created At</th>
+            <th>Relates To</th>
+            <th>Ticket ID</th>
+            <th>Content</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (Note n in _notes)
+        {
+            <tr>
+                <td>@n.CreatedAt</td>
+                <td>@n.RelatesTo</td>
+                <td>@n.TicketId</td>
+                <td>@n.NoteText</td>
+                <td>
+                    <a class="btn btn-info" href="editnote/@n.NoteId">
+                        <i class="oi oi-pencil"></i>
+                    </a>
+                    <a class="btn btn-danger"
+                    href="deletenote/@n.NoteId">
+                        <i class="oi oi-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IEnumerable<Note>? _notes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _notes = await Service.GetNotesAsync();
+    }
+}

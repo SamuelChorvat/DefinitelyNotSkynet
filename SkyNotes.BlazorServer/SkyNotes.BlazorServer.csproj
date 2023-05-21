@@ -1,9 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SkyNotes.Common.DataContext.Sqlite\SkyNotes.Common.DataContext.Sqlite.csproj" />
+        <ProjectReference Include="..\SkyNotes.Common.EntityModels.Sqlite\SkyNotes.Common.EntityModels.Sqlite.csproj" />
+    </ItemGroup>
 
 </Project>
