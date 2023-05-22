@@ -5,4 +5,5 @@ namespace SkyNotes.BlazorServer.Data;
 public interface ISkyNotesService
 {
     Task<List<Note>> GetNotesAsync();
+    Task<Note> CreateNoteAsync(Note note);
 }

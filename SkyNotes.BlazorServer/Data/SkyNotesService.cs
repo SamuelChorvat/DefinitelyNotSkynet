@@ -17,4 +17,12 @@ public class SkyNotesService : ISkyNotesService
     {
         return _dbContext.Notes.OrderByDescending(x => x.CreatedAt).ToListAsync();
     }
+
+    public Task<Note> CreateNoteAsync(Note note)
+    {
+        if (string.IsNullOrEmpty(note.TicketId)) note.TicketId = "N/A";
+        _dbContext.Notes.Add(note);
+        _dbContext.SaveChangesAsync();
+        return Task.FromResult(note);
+    }
 }

@@ -1,0 +1,21 @@
+@page "/createnote"
+@using SkyNotes.Common.EntityModels.Sqlite
+@using SkyNotes.BlazorServer.Data
+@inject ISkyNotesService Service
+@inject NavigationManager NavigationManager
+
+<h1>Create Note</h1>
+
+<NoteDetail ButtonText="Create Note"
+            Note="@_note"
+            OnValidSubmit="@Create"/>
+
+@code {
+    private Note _note = new();
+
+    private async Task Create()
+    {
+        await Service.CreateNoteAsync(_note);
+        NavigationManager.NavigateTo("notes");
+    }
+}
