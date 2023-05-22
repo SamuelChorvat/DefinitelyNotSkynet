@@ -6,30 +6,30 @@
     <div>
       <label>Relates To</label>
       <div>
-        <InputText @bind-Value="@Note.RelatesTo" />
+        <InputText class="form-control" style="width: 100%;" @bind-Value="@Note.RelatesTo" />
         <ValidationMessage For="@(() => Note.RelatesTo)" />
       </div>
     </div>
   </div>
-  <div class="form-group ">
+  <div class="form-group">
     <div>
-      <label>Ticket ID (optional)</label>
+      <label>Ticket ID</label>
       <div>
-        <InputText @bind-Value="@Note.TicketId" />
+        <InputText class="form-control" placeholder="Optional" style="width: 100%;" @bind-Value="@Note.TicketId" />
         <ValidationMessage For="@(() => Note.TicketId)" />
       </div>
     </div>
   </div>
-  <div class="form-group ">
+  <div class="form-group">
     <div>
       <label>Content</label>
       <div>
-        <InputTextArea @bind-Value="@Note.NoteText" />
+        <textarea class="form-control textarea-resizable" style="width: 100%;" @bind="@Note.NoteText"></textarea>
         <ValidationMessage For="@(() => Note.NoteText)" />
       </div>
     </div>
   </div>
-  <button type="submit" class="btn btn-@ButtonStyle">
+  <button type="submit" class="btn btn-@ButtonStyle" style="margin-top: 10px;">
     @ButtonText
   </button>
 </EditForm>
