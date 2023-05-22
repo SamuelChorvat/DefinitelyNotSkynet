@@ -1,0 +1,33 @@
+@page "/editnote/{noteid}"
+@using SkyNotes.Common.EntityModels.Sqlite
+@using SkyNotes.BlazorServer.Data
+@inject ISkyNotesService Service
+@inject NavigationManager NavigationManager
+
+<h1>Edit Note</h1>
+
+<NoteDetail ButtonText="Update"
+                Note="@_note" 
+                OnValidSubmit="@Update" />
+
+@code {
+    [Parameter]
+    public string NoteId { get; set; } = null!;
+
+    private Note? _note = new();
+    
+    protected override async Task OnParametersSetAsync()
+    {
+        _note = await Service.GetNoteAsync(int.Parse(NoteId));
+    }
+
+    private async Task Update()
+    {
+        if (_note is not null)
+        {
+            await Service.UpdateNoteAsync(_note);
+        }
+        
+        NavigationManager.NavigateTo("notes");
+    }
+}

@@ -31,6 +31,13 @@ public class SkyNotesService : ISkyNotesService
         return Task.FromResult(note);
     }
 
+    public Task<Note> UpdateNoteAsync(Note note)
+    {
+        _dbContext.Entry(note).State = EntityState.Modified;
+        _dbContext.SaveChangesAsync();
+        return Task.FromResult(note);
+    }
+
     public Task DeleteNoteAsync(int id)
     {
         Note? note = _dbContext.Notes.FirstOrDefaultAsync(n => n.NoteId == id).Result;
