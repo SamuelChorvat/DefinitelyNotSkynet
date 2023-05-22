@@ -6,7 +6,7 @@
     <div>
       <label>Relates To</label>
       <div>
-        <InputText class="form-control" style="width: 100%;" @bind-Value="@Note.RelatesTo" />
+        <InputText class="form-control" placeholder="e.g. Project Work or Self Development" style="width: 100%;" @bind-Value="@Note.RelatesTo" />
         <ValidationMessage For="@(() => Note.RelatesTo)" />
       </div>
     </div>
