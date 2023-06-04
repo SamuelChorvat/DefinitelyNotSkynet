@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SkyNotes.Common.DataContext.Sqlite;
-using SkyNotes.Common.EntityModels.Sqlite;
+using SkyNotes.Common.DataContext.SqlServer;
+using SkyNotes.Common.EntityModels.SqlServer;
 
 namespace SkyNotes.BlazorServer.Data;
 

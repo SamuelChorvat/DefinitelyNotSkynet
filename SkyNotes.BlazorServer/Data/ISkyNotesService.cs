@@ -1,4 +1,4 @@
-﻿using SkyNotes.Common.EntityModels.Sqlite;
+﻿using SkyNotes.Common.EntityModels.SqlServer;
 
 namespace SkyNotes.BlazorServer.Data;
 

@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\SkyNotes.Common.DataContext.Sqlite\SkyNotes.Common.DataContext.Sqlite.csproj" />
-        <ProjectReference Include="..\SkyNotes.Common.EntityModels.Sqlite\SkyNotes.Common.EntityModels.Sqlite.csproj" />
+        <ProjectReference Include="..\SkyNotes.Common.EntityModels.SqlServer\SkyNotes.Common.EntityModels.SqlServer.csproj" />
+        <ProjectReference Include="..\SkyNotes.Common.DataContext.SqlServer\SkyNotes.Common.DataContext.SqlServer.csproj" />
     </ItemGroup>
 
 </Project>
