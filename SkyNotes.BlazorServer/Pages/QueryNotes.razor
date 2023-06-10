@@ -1,0 +1,57 @@
+@page "/querynotes"
+@using SkyNotes.BlazorServer.Data
+@inject IOpenAiService AiService;
+
+<h1>Query Notes</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="dateFrom">From:</label>
+            <input id="dateFrom" type="date" class="form-control" @bind="_dateFrom" />
+            @if (_dateFrom > _dateTo)
+            {
+                <p class="text-danger">From date must be before To date.</p>
+            }
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="dateTo">To:</label>
+            <input id="dateTo" type="date" class="form-control" @bind="_dateTo" />
+            @if (_dateTo > DateTime.Now)
+            {
+                <p class="text-danger">To date cannot be in the future.</p>
+            }
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="form-group">
+        <label for="query">Query:</label>
+        <textarea id="query" type="text" class="form-control textarea-resizable" style="width: 100%;" @bind="_query"></textarea>
+        @if (string.IsNullOrWhiteSpace(_query))
+        {
+            <p class="text-danger">Query cannot be empty.</p>
+        }
+    </div>
+</div>
+
+<div class="form-group">
+    <button class="btn btn-primary" style="margin-top: 10px;" @onclick="Query" disabled="@IsQueryDisabled()">Query</button>
+</div>
+
+@code {
+    private DateTime _dateFrom = DateTime.Today;
+    private DateTime _dateTo = DateTime.Today;
+    private string _query;
+
+    private async Task Query() {
+
+    }
+
+    private bool IsQueryDisabled() {
+        return _dateFrom > _dateTo || _dateTo > DateTime.Now || string.IsNullOrWhiteSpace(_query);
+    }
+}

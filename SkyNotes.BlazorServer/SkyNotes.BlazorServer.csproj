@@ -11,4 +11,8 @@
         <ProjectReference Include="..\SkyNotes.Common.DataContext.SqlServer\SkyNotes.Common.DataContext.SqlServer.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Azure.AI.OpenAI" Version="1.0.0-beta.5" />
+    </ItemGroup>
+
 </Project>

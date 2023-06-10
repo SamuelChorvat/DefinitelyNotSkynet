@@ -8,10 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Configuration.AddEnvironmentVariables();
 
 builder.Services.AddSkyNotesContext(connectionString:builder.Configuration.GetConnectionString("SQLAZURECONNSTR_SkynotesDbConnection")!);
 
 builder.Services.AddTransient<ISkyNotesService, SkyNotesService>();
+builder.Services.AddTransient<IOpenAiService, OpenAiService>();
 
 var app = builder.Build();
 
