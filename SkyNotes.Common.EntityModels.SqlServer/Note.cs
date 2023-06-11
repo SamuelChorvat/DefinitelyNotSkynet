@@ -27,4 +27,11 @@ public class Note
     [Required(ErrorMessage = "The Content field is required.")]
     [Display(Name = "Content")] 
     public string? NoteText { get; set; }
+
+    public override string ToString() {
+        return $"Created At: {CreatedAt} --- " +
+               $"Relates To: {RelatesTo} --- " +
+               $"Ticket Id: {TicketId} --- " +
+               $"Note Text: {NoteText}";
+    }
 }

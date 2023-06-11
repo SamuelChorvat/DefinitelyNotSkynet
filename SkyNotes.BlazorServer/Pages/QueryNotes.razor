@@ -42,13 +42,29 @@
     <button class="btn btn-primary" style="margin-top: 10px;" @onclick="Query" disabled="@IsQueryDisabled()">Query</button>
 </div>
 
+@if (_queryResponseLoading) {
+    <div style="margin-top: 10px;" class="spinner-border text-primary" role="status"/>
+}
+
+@if (!string.IsNullOrWhiteSpace(_queryAnswer)) {
+    <div>
+        <hr style="margin-top: 15px;"/>
+        <h3 style="margin-top: 10px;">Response</h3>
+        <p style="white-space: pre-wrap;">@_queryAnswer</p>
+    </div>
+}
+
 @code {
     private DateTime _dateFrom = DateTime.Today;
     private DateTime _dateTo = DateTime.Today;
-    private string _query;
+    private string? _query;
+    private string? _queryAnswer;
+    private bool _queryResponseLoading = false;
 
     private async Task Query() {
-
+        _queryResponseLoading = true;
+        _queryAnswer = await AiService.QueryNotes(_dateFrom, _dateTo, _query!);
+        _queryResponseLoading = false;
     }
 
     private bool IsQueryDisabled() {

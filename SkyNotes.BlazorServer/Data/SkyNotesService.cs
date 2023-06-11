@@ -18,6 +18,10 @@ public class SkyNotesService : ISkyNotesService
         return _dbContext.Notes.OrderByDescending(x => x.CreatedAt).ToListAsync();
     }
 
+    public Task<List<Note>> GetNotesAsync(DateTime from, DateTime to) {
+        return _dbContext.Notes.Where(x => x.CreatedAt >= from && x.CreatedAt <= to).ToListAsync();
+    }
+
     public Task<Note?> GetNoteAsync(int id)
     {
         return _dbContext.Notes.FirstOrDefaultAsync(n => n.NoteId == id);
